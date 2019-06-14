@@ -38,10 +38,12 @@ export default class NavCiclo extends React.Component {
 
 const styles = StyleSheet.create({
     nav: {
-        flex: 1,
+        height: '25%',
+        paddingLeft: 20,
+        paddingRight: 20,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#000',
+        backgroundColor: 'black',
     },
     navText: {
         fontSize: 10,

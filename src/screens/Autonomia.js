@@ -1,82 +1,62 @@
 import React, { Component } from 'react';
-import { SafeAreaView, StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, ImageBackground, TouchableHighlight } from 'react-native';
 
 import Nav from '../components/Nav';
 
-const backgroundCar = require('../assets/bugatti.jpg')
+const backgroundCar = require('../assets/bugatti.jpg');
 
-export default class App extends Component {
+export default class Autonomia extends Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-            <View style={styles.container}>           
-            
-                {/* title */}
-                <View style={styles.title}>
-                    <Text style={styles.titleText}>AUTONOMIA</Text>
-                </View>
+                <ImageBackground style={styles.backgroundCar} source={backgroundCar}>
+                    <View style={styles.container}>
+                        <Text style={styles.titleText}>AUTONOMIA</Text>
+                    </View>
+                    
+                    <View style={styles.btnRelatorio}>
+                        <TouchableHighlight style={styles.botao}>
+                            <Text style={styles.btnText}>RELATÓRIO</Text>
+                        </TouchableHighlight>
+                    </View>
 
-                {/* conteudo principal */}
-                <View style={styles.imagem}>
-                    <Image style={styles.backgroundCar} source={backgroundCar}></Image>
-                </View>
+                    <Nav></Nav>
 
-                <View style={styles.btnRelatorio}>
-                    <TouchableHighlight>
-                        <Text style={styles.btnText}>RELATÓRIO</Text>
-                    </TouchableHighlight>
-                </View>
-
-                <Nav></Nav>
-
-                </View>
+                </ImageBackground>
             </SafeAreaView>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
+const styles = StyleSheet.create({  
+    backgroundCar: {
         flex: 1,
-        padding: 20,
-       backgroundColor: 'black',
-    },
-    title: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
         backgroundColor: 'black',
+    },
+    container: {
+        height: '65%',
+        alignItems: 'center',
     },
     titleText: {
+        marginTop: '10%',
         color: '#fff',
         fontSize: 20,
-    },
-    imagem: {
-        flex: 2,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'black',
-    },
-    backgroundCar: {
-        width: 370,
-        height: 220,
-    },
+    },   
     btnRelatorio: {
-        backgroundColor: 'black',
+        height: '10%',
+        alignItems: 'center',
+    },
+    botao: {
+        borderRadius: 3,
+        borderWidth: 1,
+        borderColor: '#fff',
+        width: 220,
+        height: 40,
         alignItems: 'center',
         justifyContent: 'center',
     },
     btnText: {
         color: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 3,
-        borderWidth: 1,
-        borderColor: '#fff',
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 50,
-        paddingRight: 50,
-        marginBottom: 15,
     }
 });
